@@ -1,0 +1,94 @@
+/* Import Google Fonts at the top */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. Define theme variables */
+:root {
+  --brand-primary: #F9F5F0;
+  --brand-secondary: #FFFFFF;
+  --brand-accent: #2A6F56;
+  --brand-accent-hover: #225945;
+  --brand-text-primary: #1C1C1C;
+  --brand-text-secondary: #5A5A5A;
+  --brand-highlight: #D4A373;
+  --brand-border: #E0D8CC;
+  --font-sans: 'Poppins', sans-serif;
+}
+
+/* 2. Apply base styles using regular CSS */
+@layer base {
+  body {
+    background-color: var(--brand-primary);
+    color: var(--brand-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* 3. Define or override Tailwind-like classes using your theme */
+@layer components {
+  /* Custom definitions for classes used in your component */
+  .bg-primary {
+    background-color: var(--brand-accent); /* Maps to #2A6F56 */
+  }
+  .text-primary-foreground {
+    color: var(--brand-secondary); /* Assuming white for foreground text on primary */
+  }
+  .bg-card {
+    background-color: var(--brand-secondary); /* Light background for cards */
+  }
+  .text-foreground {
+    color: var(--brand-text-primary); /* Main text color */
+  }
+  .bg-muted {
+    background-color: var(--brand-primary); /* Subtle background */
+  }
+  .bg-muted-foreground {
+    background-color: var(--brand-text-secondary); /* For muted elements */
+  }
+  .border-border {
+    border-color: var(--brand-border); /* Border color */
+  }
+  .bg-background {
+    background-color: var(--brand-secondary); /* General background */
+  }
+  .placeholder-muted-foreground::placeholder {
+    color: var(--brand-text-secondary); /* Placeholder text color */
+  }
+  .hover\:bg-primary:hover {
+    background-color: var(--brand-accent-hover); /* Hover state for primary */
+  }
+  .focus\:ring-primary:focus {
+    box-shadow: 0 0 0 3px rgba(var(--brand-accent), 0.5); /* Focus ring */
+  }
+  .focus\:border-primary:focus {
+    border-color: var(--brand-accent); /* Focus border */
+  }
+
+  /* Additional custom classes for enhancement */
+  .shadow-medium {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Example shadow */
+  }
+  .loader {
+    width: 2rem;
+    height: 2rem;
+    border-width: 4px;
+    border-color: var(--brand-accent);
+    border-bottom-color: transparent;
+    border-radius: 9999px;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+@import "tailwindcss";
