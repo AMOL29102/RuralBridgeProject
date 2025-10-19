@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
+const API = axios.create({ baseURL:  "https://rural-bridge-project.vercel.app" || "http://localhost:5000" });
 
 export const setToken = (token) => {
     if(token) {
