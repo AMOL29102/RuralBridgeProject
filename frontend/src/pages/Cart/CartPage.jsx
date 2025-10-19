@@ -6,7 +6,7 @@ import { FiTrash2 } from 'react-icons/fi';
 
 const CartPage = () => {
   const { cart, loading, removeFromCart } = useContext(CartContext);
-  const subtotal = cart.reduce((acc, item) => acc + item.quantity * item.product.price, 0);
+  const subtotal = cart.reduce((acc, item) => acc + item.quantity * item.product?.price, 0);
 
   if (loading) return <div className="text-center text-foreground mt-12">Loading Cart...</div>;
 
@@ -42,8 +42,8 @@ const CartPage = () => {
                   {console.log(item)}
                   <h2 className="text-lg font-semibold text-foreground">{item.product?.name}</h2>
                   <p className="text-sm text-[--brand-text-secondary]">{item.product?.description}</p>
-                  <p className="text-sm text-[--brand-text-secondary]">Qty: {item.quantity}</p>
-                  <p className="text-lg font-bold text-primary">₹{item.product.price.toFixed(2)}</p>
+                  <p className="text-sm text-[--brand-text-secondary]">Qty: {item?.quantity}</p>
+                  <p className="text-lg font-bold text-primary">₹{item.product?.price.toFixed(2)}</p>
                 </div>
                 <button
                   onClick={() => removeFromCart(item.product?._id)}
